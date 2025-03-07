@@ -9,4 +9,19 @@ body {
     width: 960px;
     border-color: black;
     border-style: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 0px;
+}
+
+.verticalgrid {
+    border-style: solid;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0px;
+}
+
+.horizontalgrid{
+    border-style: solid;
 }
