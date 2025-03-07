@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#outergrid {
+    height: 960px;
+    width: 960px;
+    border-color: black;
+    border-style: solid;
+}
