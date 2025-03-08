@@ -18,12 +18,18 @@ body {
     align-self: center;
 }
 
-#reset {
+button {
     align-self: center;
-    margin: 50px;
     border-radius: 15px;
     padding: 10px 50px;
 }
+
+#buttoncontainer {
+    display: flex;
+    padding: 50px;
+    justify-content: space-around;
+}
+
 .verticalgrid {
     display: flex;
     justify-content: space-evenly;
