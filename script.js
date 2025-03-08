@@ -19,8 +19,10 @@ function gridCreate(gridSize) {
             horizontalgrid.classList.add("horizontalgrid");
             verticalgrid.appendChild(horizontalgrid);
             horizontalgrid.addEventListener("mouseover", (e) => {
-                horizontalgrid.classList.add("hovered")
-                horizontalgrid.style.backgroundColor = `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
+                if (!horizontalgrid.classList.contains('hovered')) {
+                    horizontalgrid.classList.add("hovered");
+                    horizontalgrid.style.backgroundColor = `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
+                }
             });
         };
     };
@@ -45,4 +47,4 @@ gridSizeButton.addEventListener("click", (e) => {
     outerGrid.replaceChildren();
     // uses grid create function with the grid size inputted from the prompt
     gridCreate(newGridSize);
-})
+});
