@@ -2,6 +2,12 @@ const defaultGridSize = 64
 const resetButton = document.querySelector("#reset");
 const gridSizeButton = document.querySelector("#gridsize")
 
+
+function getRandomInt(integer) {
+    return Math.floor(Math.random() * integer)
+}
+
+
 // function to create the grid of the etch-a-sketch
 function gridCreate(gridSize) {
     for (let i = 0; i < gridSize; i++){
@@ -13,7 +19,8 @@ function gridCreate(gridSize) {
             horizontalgrid.classList.add("horizontalgrid");
             verticalgrid.appendChild(horizontalgrid);
             horizontalgrid.addEventListener("mouseover", (e) => {
-                horizontalgrid.classList.add("hovered");
+                horizontalgrid.classList.add("hovered")
+                horizontalgrid.style.backgroundColor = `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
             });
         };
     };
@@ -22,11 +29,11 @@ function gridCreate(gridSize) {
 // defaults grid to 64x64
 gridCreate(defaultGridSize)
 
-// resets grid through looping through all elements under id 'hovered'.
+// resets grid through looping through all elements under class 'hovered'.
 resetButton.addEventListener("click", (e) => {
     const resetGrid = document.querySelectorAll(".hovered");
     for (let i = 0; i < resetGrid.length; i++) {
-        resetGrid[i].classList.remove("hovered");
+        resetGrid[i].style.backgroundColor = 'white';
     };
 });
 
