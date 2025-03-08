@@ -1,24 +1,41 @@
-const gridSize = 64
+const defaultGridSize = 64
 const resetButton = document.querySelector("#reset");
+const gridSizeButton = document.querySelector("#gridsize")
 
+// function to create the grid of the etch-a-sketch
+function gridCreate(gridSize) {
+    for (let i = 0; i < gridSize; i++){
+        const verticalgrid = document.createElement('div');
+        verticalgrid.classList.add("verticalgrid");
+        outergrid.appendChild(verticalgrid);
+        for (let i = 0; i < gridSize; i++){
+            const horizontalgrid = document.createElement('div');
+            horizontalgrid.classList.add("horizontalgrid");
+            verticalgrid.appendChild(horizontalgrid);
+            horizontalgrid.addEventListener("mouseover", (e) => {
+                horizontalgrid.classList.add("hovered");
+            });
+        };
+    };
+};
 
-for (let i = 0; i < gridSize; i++){
-    const verticalgrid = document.createElement('div');
-    verticalgrid.classList.add("verticalgrid");
-    outergrid.appendChild(verticalgrid);
-    for (let i = 0; i < (gridSize - 1); i++){
-        const horizontalgrid = document.createElement('div');
-        horizontalgrid.classList.add("horizontalgrid");
-        verticalgrid.appendChild(horizontalgrid);
-        horizontalgrid.addEventListener("mouseover", (e) => {
-            horizontalgrid.classList.add("hovered");
-        });
-    }
-}
+// defaults grid to 64x64
+gridCreate(defaultGridSize)
 
+// resets grid through looping through all elements under id 'hovered'.
 resetButton.addEventListener("click", (e) => {
     const resetGrid = document.querySelectorAll(".hovered");
     for (let i = 0; i < resetGrid.length; i++) {
         resetGrid[i].classList.remove("hovered");
     };
 });
+
+// allows custom grid size through a prompt
+gridSizeButton.addEventListener("click", (e) => {
+    const newGridSize = parseInt(prompt("what value?"));
+    const outerGrid = document.querySelector("#outergrid");
+    // removes all children of main container holding the grid effectively clearing grids
+    outerGrid.replaceChildren();
+    // uses grid create function with the grid size inputted from the prompt
+    gridCreate(newGridSize);
+})
