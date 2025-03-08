@@ -1,5 +1,5 @@
 const gridSize = 64
-
+const resetButton = document.querySelector("#reset");
 
 
 for (let i = 0; i < gridSize; i++){
@@ -16,3 +16,9 @@ for (let i = 0; i < gridSize; i++){
     }
 }
 
+resetButton.addEventListener("click", (e) => {
+    const resetGrid = document.querySelectorAll(".hovered");
+    for (let i = 0; i < resetGrid.length; i++) {
+        resetGrid[i].classList.remove("hovered");
+    };
+});

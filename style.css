@@ -2,6 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
 }
 
 #outergrid {
@@ -14,8 +15,15 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     gap: 0px;
+    align-self: center;
 }
 
+#reset {
+    align-self: center;
+    margin: 50px;
+    border-radius: 15px;
+    padding: 10px 50px;
+}
 .verticalgrid {
     display: flex;
     justify-content: space-evenly;
@@ -32,3 +40,4 @@ body {
 .hovered {
     background-color: black;
 }
+
